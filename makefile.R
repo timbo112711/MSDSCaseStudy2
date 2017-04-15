@@ -26,7 +26,7 @@ source("MaxandMin.R")
 source("MergeData.R")
 
 # Plot the top 20 countries with the maximum differences 
-source("")
+source("Top20_Plot.R")
 
 ## Question 3ii.##
 ##################
