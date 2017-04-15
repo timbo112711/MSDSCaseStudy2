@@ -71,12 +71,12 @@ head(MonAvTempFinal)
 str(MonAvTempFinal)
 
 ## Plot the top 20 countires with the heightest difference
-# Attach the df 
-attach(Top20)
-
 # Select the first 20 rows 
 Top20 <- MonAvTempFinal[1:20,]
 
+  # Attach the df 
+attach(Top20)
+  
 # Drop the colunms with the Max and Min, it's easier to plot this way
 Max <- NULL
 Min <- NULL
