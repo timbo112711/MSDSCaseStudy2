@@ -21,4 +21,6 @@ ggplot(Top20, aes(x=Country, y=Diff, fill=Country))+ # the fill argument colors 
 ggplot(Top20, aes(x=Country, y=Diff))+ 
   geom_point(aes(colour=factor(Country), size = Diff))+
   labs(x = "Country", y = "Difference", title = "Top 20 Countries with Maximum Differences for the Period Since 1900")+
+  theme_dark()+
   theme(legend.position = "none")
+
