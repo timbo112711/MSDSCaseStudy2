@@ -74,7 +74,7 @@ str(MonAvTempFinal)
 # Select the first 20 rows 
 Top20 <- MonAvTempFinal[1:20,]
 
-  # Attach the df 
+# Attach the df 
 attach(Top20)
   
 # Drop the colunms with the Max and Min, it's easier to plot this way
@@ -92,7 +92,8 @@ ggplot(Top20, aes(x=Country, y=Diff, fill=Country))+ # the fill argument colors 
 ggplot(Top20, aes(x=Country, y=Diff))+ 
   geom_point(aes(colour=factor(Country), size = Diff))+ # points that are colored by Country and are the size of their Diff values
   labs(x = "Country", y = "Difference", title = "Top 20 Countries with Maximum Differences for the Period Since 1900")+
-  theme(legend.position = "none")
+  theme_dark()+ # the type of theme of the graph layout
+  theme(legend.position = "none") # remove all legends from graph
 
-
+detach(Top20)
 
