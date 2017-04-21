@@ -11,6 +11,7 @@ library(dplyr)
 library(ggplot2)
 library(readr)
 library(pander)
+library(data.table)
 
 ## Orange Tree Analysis ##
 ##########################
@@ -52,17 +53,17 @@ source("Top20Countries_Plot.R")
 # Subset the Temp dataset for US land temperatures from 01/01/1990 
 source("USTemp.R")
 
-# Create new column that displays the monthly average land temperatures in Fahrenheit (°F). 
+# Create new column that displays the monthly average land temperatures in Fahrenheit (Â°F). 
 source("DegreeF.R")
 
-# Calculate average land temperature by year  !!!!!!!!!!!!!!!!!!!!!!!!
+# Calculate average land temperature by year
 source("AnnualLandTemp.R")
 
 # Plot average land temperature by year
 source("ALT_Plot.R")
 
 # Calculate the one year difference of average land temperature by year and provide the maximum difference (value) with corresponding two years. 
-source("")
+source("") ## Still working in it
 
 ## Cities ##
 ############
