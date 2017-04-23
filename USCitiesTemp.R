@@ -3,6 +3,12 @@ temp4 <- subset(temp2, Country == "United States")
 
 #Subset based on only dates after 12/31/1899
 USTemps <- subset(temp4, Flag == 1)
+#Subset out dates between 1990-01-01 and 2012-12-01
+USTemps$Date2 <- as.Date(as.character(USTemps$Date),"%m-%d-%Y")
+t1 = as.Date("1990-01-01")
+t2 = as.Date("2012-12-01")
+USTemps <- USTemps[USTemps$Date2 %in% t1:t2, ]
+
 
 #Rename Monthly AverageTemp to get rid of spaces
 names(USTemps)[names(USTemps)=="Monthly.AverageTemp"] <- "CTemp"
@@ -17,7 +23,7 @@ USTemps$Date <- as.Date(USTemps$Date,"%m-%d-%Y")
 USTemps$Year <- year(USTemps$Date)
 
 #Delete partial year values for 2013
-USTemps <- subset(USTemps,Year != 2013)
+#USTemps <- subset(USTemps,Year != 2013)
 
 #Group by Year
 Years_Group <- group_by(USTemps,Year)
@@ -29,7 +35,7 @@ Years_Temp <- summarize(Years_Group, sum(FTemp)/12)
 Years_Temp$FTemp <- Years_Temp$`sum(FTemp)/12`
 
 #Print bar graph by year
-ggplot(data = Years_Temp, aes(x=Year, y= FTemp)) +geom_bar(stat="identity", alpha=0.25) +guides(fill = FALSE) +xlab("Years") + ylab("Average US Temps F") +geom_line(colour="red", size=1.5)
+#ggplot(data = Years_Temp, aes(x=Year, y= FTemp)) +geom_bar(stat="identity", alpha=0.25) +guides(fill = FALSE) +xlab("Years") + ylab("Average US Temps F") +geom_line(colour="red", size=1.5)
 
 #Another possible chart, I think this is better showing the changes
 #Will work on smoothing this a bit, probably using a running average to smooth out annualize variations
