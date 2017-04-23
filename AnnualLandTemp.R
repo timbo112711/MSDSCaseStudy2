@@ -15,3 +15,6 @@ Years_Temp <- summarize(Years_Group, sum(FTemp)/12)
 
 #Write value as a stored colum
 Years_Temp$FTemp <- Years_Temp$`sum(FTemp)/12`
+
+# Subset dataframe to show years => 1990
+US1990 <- Years_Temp[which(Years_Temp$Year>=1990),]
