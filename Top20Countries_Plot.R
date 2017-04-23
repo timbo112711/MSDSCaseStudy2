@@ -20,3 +20,4 @@ Top20Contires <- ggplot(Top20, aes(x=reorder(Country,-Diff), y=Diff, fill = Diff
                   theme(legend.position = "none") # remove all leends from graph
 
 print(Top20Contires)
+ggsave("countryplot.png")
