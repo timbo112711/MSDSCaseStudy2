@@ -32,14 +32,14 @@ source("Orange_Plots.R")
 ## Temperature Analysis: Countries & Cities ##
 ##############################################
 
-## Countires ##
+## Countries ##
 ###############
 
 # Import the dataset (Temp.csv)
 source("TempData.R")
 
 # Tidy up the dataset
-source("DataCleanUp.R")
+source("TempDataCleanUp.R")
 
 # Calculate Max and Min for each country since 1900
 source("MaxandMin.R")
@@ -63,7 +63,7 @@ source("AnnualLandTemp.R")
 source("ALT_Plot.R")
 
 # Calculate the one year difference of average land temperature by year and provide the maximum difference (value) with corresponding two years. 
-source("") ## Still working in it
+source("YearCalcDiff.R") ## Still working in it
 
 ## Cities ##
 ############
