@@ -1,12 +1,6 @@
----
-title: "Orange Tree and Temperature Studies"
-title2: "MSDS 6303 Case Study 2 Question 2"
-author: "Joseph Denney, Timothy McWilliams and Laurie Harris"
-date: "April 24, 2017"
-output:
-  html_document:
-    keep_md: true
----
+# Orange Tree and Temperature Studies
+Joseph Denney, Timothy McWilliams and Laurie Harris  
+April 24, 2017  
 
 
 
@@ -34,36 +28,6 @@ orange <- Orange
 attach (orange)
 ```
 
-```
-## The following objects are masked from orange (pos = 4):
-## 
-##     age, circumference, Tree
-```
-
-```
-## The following objects are masked from orange (pos = 5):
-## 
-##     age, circumference, Tree
-```
-
-```
-## The following objects are masked from orange (pos = 7):
-## 
-##     age, circumference, Tree
-```
-
-```
-## The following objects are masked from orange (pos = 8):
-## 
-##     age, circumference, Tree
-```
-
-```
-## The following objects are masked from orange (pos = 10):
-## 
-##     age, circumference, Tree
-```
-
 ####Data Analysis
 We would like to understand more about the circumferences of each tree therefore we will compute the mean and median circumferences from the measurement data. The table below shows the mean and median measurments for each of the five orange trees.
 
@@ -75,6 +39,13 @@ We would like to understand more about the circumferences of each tree therefore
 #invoke libraries
 library(plyr)
 library(pander)
+```
+
+```
+## Warning: package 'pander' was built under R version 3.3.3
+```
+
+```r
 #Compute mean circumference by Tree
 mean <- ddply(orange, .(Tree), summarize, mean=mean(circumference))
 mean$mean <- format(mean$mean,digits = 2)
