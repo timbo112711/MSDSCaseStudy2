@@ -9,5 +9,6 @@ while (i <= 2011){
     x= x+ 1
 }
 Years_Temp_Sorted <- Years_Temp[ order(-Years_Temp[,5]), ]
+Years_Temp_Sorted <- Years_Temp_Sorted[which(Years_Temp_Sorted$Year>=1990),]
 Years_Out <- paste(Years_Temp_Sorted$Diff.Year[1], "-", Years_Temp_Sorted$Diff[1])
 Years_Out
