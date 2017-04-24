@@ -64,7 +64,7 @@ source("AnnualLandTemp.R")
 source("ALT_Plot.R")
 
 # Calculate the one year difference of average land temperature by year and provide the maximum difference (value) with corresponding two years. 
-source("YearCalcDiff.R") ## Still working in it
+source("YearCalcDiff.R")
 
 ## Cities ##
 ############
