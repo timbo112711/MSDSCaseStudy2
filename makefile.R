@@ -94,5 +94,3 @@ knit("Report.Rmd")
 # Then call the knit() on the Rmd file.
 
 knit("Final_Report.Rmd")
-
-rmarkdown::render(input = "Final_Report.Rmd", output_file = "Final_Report.md")
