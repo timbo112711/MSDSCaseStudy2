@@ -32,8 +32,12 @@ We would like to understand more about the circumferences of each tree therefore
 
 ####Graphical Examination
 To demonstrate the differences in circumferences over the timeframe, we will present two plots that show the data for each tree.  The first plot shows the circumference measurements related to age for each tree.  The second plot shows the range of circumference measurements as separate boxplots for each tree.  
-```{r,code=readLines('Orange_Plots.R'),eval = TRUE}
+```{r,code=readLines('Orange_Plots.R'),eval = FALSE}
 ```
+![](scatter.png)
+
+![](box.png)
+
 
 ####Conclusion
 From the analysis, we notice that although each tree begins with a similar circumference measurement, tree number 4 has the highest circumferences over the time period and tree number 3 has the lowest measurements.  The range circumferences of trees 1 and 3 appear to be similar, on a smaller scale, while trees 2 and 4 appear to share similar, larger circumference ranges.

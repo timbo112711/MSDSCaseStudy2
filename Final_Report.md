@@ -1,6 +1,12 @@
-# Orange Tree and Temperature Studies
-Joseph Denney, Timothy McWilliams and Laurie Harris  
-April 24, 2017  
+---
+title: "Orange Tree and Temperature Studies"
+title2: "MSDS 6303 Case Study 2 Question 2"
+author: "Joseph Denney, Timothy McWilliams and Laurie Harris"
+date: "April 24, 2017"
+output:
+  html_document:
+    keep_md: true
+---
 
 
 
@@ -28,6 +34,36 @@ orange <- Orange
 attach (orange)
 ```
 
+```
+## The following objects are masked from orange (pos = 4):
+## 
+##     age, circumference, Tree
+```
+
+```
+## The following objects are masked from orange (pos = 5):
+## 
+##     age, circumference, Tree
+```
+
+```
+## The following objects are masked from orange (pos = 7):
+## 
+##     age, circumference, Tree
+```
+
+```
+## The following objects are masked from orange (pos = 8):
+## 
+##     age, circumference, Tree
+```
+
+```
+## The following objects are masked from orange (pos = 10):
+## 
+##     age, circumference, Tree
+```
+
 ####Data Analysis
 We would like to understand more about the circumferences of each tree therefore we will compute the mean and median circumferences from the measurement data. The table below shows the mean and median measurments for each of the five orange trees.
 
@@ -39,13 +75,6 @@ We would like to understand more about the circumferences of each tree therefore
 #invoke libraries
 library(plyr)
 library(pander)
-```
-
-```
-## Warning: package 'pander' was built under R version 3.3.3
-```
-
-```r
 #Compute mean circumference by Tree
 mean <- ddply(orange, .(Tree), summarize, mean=mean(circumference))
 mean$mean <- format(mean$mean,digits = 2)
@@ -85,17 +114,17 @@ To demonstrate the differences in circumferences over the timeframe, we will pre
 library(ggplot2)
 scatter <- ggplot(orange, aes(age,circumference)) + geom_point(aes(color=Tree, shape=Tree)) + xlab("Age (in days from 12/31/1968)")+ ylab("Circumference (mm)")
 scatter
-```
+ggsave("scatter.png")
 
-![](Final_Report_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
-
-```r
 #Boxplot of tree circumferences by Tree
 box <- ggplot(orange, aes(Tree,circumference))+geom_boxplot()
 box
+ggsave("box.png")
 ```
+![](scatter.png)
 
-![](Final_Report_files/figure-html/unnamed-chunk-3-2.png)<!-- -->
+![](box.png)
+
 
 ####Conclusion
 From the analysis, we notice that although each tree begins with a similar circumference measurement, tree number 4 has the highest circumferences over the time period and tree number 3 has the lowest measurements.  The range circumferences of trees 1 and 3 appear to be similar, on a smaller scale, while trees 2 and 4 appear to share similar, larger circumference ranges.
@@ -216,7 +245,7 @@ Top20Contires <- ggplot(Top20, aes(x=reorder(Country,-Diff), y=Diff, fill = Diff
 Top20Contires1 <- ggplot(Top20, aes(x=reorder(Country,-Diff), y=Diff, fill = Diff))+ 
   geom_bar(colour="black", position=position_dodge(), stat = "identity")+ # bars with black outline that are touching eachother. stat argument is for the Country varible since it is a factor
   scale_fill_gradient(low = "#FF8888", high = "#FF0000")+ # red gradient 
-  geom_text(aes(label=Diff), vjust=2, color="white", position=position_dodge(1.2), size=3.5)+ # put value of Diff in top portion of the bar for each Country
+  geom_text(aes(label=Diff), hjust=1, color="white", position=position_dodge(1.2), size=3.5)+ # put value of Diff in top portion of the bar for each Country
   labs(x = "Country", y = "Difference", title = "Top 20 Countries with Maximum Differences for the Period Since 1900")+
   theme_minimal()+ # the type of theme of the graph layout
   theme(legend.position = "none")+
@@ -388,7 +417,7 @@ Top20Cities <- ggplot(City_Temp_Viz, aes(x= reorder(City,-Diff), y= Diff, fill =
 Top20Cities1 <- ggplot(City_Temp_Viz, aes(x= reorder(City,Diff), y= Diff, fill = Diff))+
   geom_bar(colour="black", position=position_dodge(), stat = "identity")+ # bars with black outline that are touching eachother. stat argument is for the Country varible since it is a factor
   scale_fill_gradient(low = "#FF8888", high = "#FF0000")+ # red gradient 
-  geom_text(aes(label=Diff), vjust=2.0, hjust= 2.0, color="white", position=position_dodge(0.9), size=3.5)+ # put value of Diff in top portion of the bar for each Country
+  geom_text(aes(label=Diff), hjust= 1.0, color="white", position=position_dodge(0.9), size=3.5)+ # put value of Diff in top portion of the bar for each Country
   labs(x = "City", y = "Difference", title = "Top 20 Cities with Maximum Differences for the Period Since 1900")+
   theme_minimal()+ # the type of theme of the graph layout
   theme(legend.position = "none")+ # remove all leends from graph
