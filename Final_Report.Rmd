@@ -96,7 +96,7 @@ We would like to examine the changes in average temperature year over year.
 ```{r,code=readLines('YearCalcDiff.R'),eval = FALSE}
 ```
 
-We have identified the following year-over-year variance in average annual temperatures to be the largest between the years 1920-1921 with a variance of 2.54 degrees Farenheit.
+We have identified the following year-over-year variance in average annual temperatures to be the largest between the years 1997-1998 with a variance of 1.74 degrees Farenheit.
 
 ###City Data
 ####Data Gathering

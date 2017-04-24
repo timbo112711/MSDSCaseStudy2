@@ -12,7 +12,18 @@ Top20Cities <- ggplot(City_Temp_Viz, aes(x= reorder(City,-Diff), y= Diff, fill =
                   labs(x = "City", y = "Difference", title = "Top 20 Cities with Maximum Differences for the Period Since 1900")+
                   theme_minimal()+ # the type of theme of the graph layout
                   theme(legend.position = "none") # remove all leends from graph
+                 
+#Horizontal bar, easier to viz?
+Top20Cities1 <- ggplot(City_Temp_Viz, aes(x= reorder(City,Diff), y= Diff, fill = Diff))+
+  geom_bar(colour="black", position=position_dodge(), stat = "identity")+ # bars with black outline that are touching eachother. stat argument is for the Country varible since it is a factor
+  scale_fill_gradient(low = "#FF8888", high = "#FF0000")+ # red gradient 
+  geom_text(aes(label=Diff), vjust=2.0, hjust= 2.0, color="white", position=position_dodge(0.9), size=3.5)+ # put value of Diff in top portion of the bar for each Country
+  labs(x = "City", y = "Difference", title = "Top 20 Cities with Maximum Differences for the Period Since 1900")+
+  theme_minimal()+ # the type of theme of the graph layout
+  theme(legend.position = "none")+ # remove all leends from graph
+  coord_flip()
 
 print(Top20Cities)
+print(Top20Cities1)
 ggsave("cityplot.png")
 
