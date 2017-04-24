@@ -52,13 +52,16 @@ The data has been provided by the client. We will import the data and do some pr
 ####Data Tidying
 Some formatting efforts were required to remove NA values and to ensure consistency with dates.  We also want to confine our analysis to the time period specified from January 1, 1900 through December 31, 2012.
 
-```{r,code=readLines('DataCleanUp.R'),eval = FALSE}
+```{r,code=readLines('TempDataCleanUp.R'),eval = FALSE}
 ```
 
 ####Data Analysis
 It is necessary to calculate the maximum and minimum temperature values for each country and perform additional tidying for the following analysis.
 
 ```{r,code=readLines('MaxandMin.R'),eval = FALSE}
+```
+
+```{r,code=readLines('MergeData.R'),eval = FALSE}
 ```
 
 ####Graphical Examination
@@ -86,12 +89,16 @@ We converted the temperatures from the data file to the US measurement standard 
 ```
 ![](altplot.png)
 
+We would like to examine the changes in average temperature year over year. 
 
-We have identified the following year-over-year variance in average annual temperatures to be .....................
+```{r,code=readLines('YearCalcDiff.R'),eval = FALSE}
+```
+
+We have identified the following year-over-year variance in average annual temperatures to be the largest between the years 1920-1921 with a variance of 2.54 degrees Farenheit.
 
 ###City Data
 ####Data Gathering
-The data has been provided by the client. We will import the data and do some preliminary exploratory analysis to determine what additional tidying steps will be required.
+The data has also been provided by the client. We will import the data and do some preliminary exploratory analysis to determine what additional tidying steps will be required.
 
 ```{r,code=readLines('CityTemperature.R'),eval = FALSE}
 ```
@@ -111,12 +118,12 @@ It is necessary to calculate the maximum and minimum temperature values for each
 ####Graphical Examination and Interpretation
 We present the top twenty cities with the largest differences between the maximum and minimum teperature measurements.
 
-The questions of interest for this section pertain to the cities of the world with the largest temperature variations. 3 of the top 5 are in China, with 1 each in Russia and Canada. While outside the scope of the current question of interest, it’s interesting that all these cities all above 40 degrees North latitude, and have generally extremely cold winters, while summers are usually mild, although occasionally get very warm, hence the differential.
-
 ```{r,code=readLines('Top20Cities_Plot.R'),eval = FALSE}
 ```
+
 ![](cityplot.png)
 
-The comparison of the breakdown between country temperature differential and  city differential are interesting, as the top 3 cities don’t appear in the top 2 countries at all. After that, Russia and Canada are represented in the next couple of rankings, with major cities coming in the top 5 for each of them. Further investigation of both data sets shows why this might be. Neither of the top 2 countries have a city listed in the cities list, and so their data doesn’t appear. Looking at a map shows the latitude of both countries to be almost entirely above 40 degrees North, which is strongly correlated with wide temperature variations. As with the city data referenced above, cold winters and occasionally oppressively hot summers account for much of the difference here. 
-
 ####Conclusion
+The questions of interest for the temperature studies pertain to the cities of the world with the largest temperature variations. Three of the top five are in China, with one each in Russia and Canada. While outside the scope of the current question of interest, it’s interesting that all these cities all above 40 degrees North latitude, and have generally extremely cold winters, while summers are usually mild, although occasionally get very warm, hence the differential.
+
+The comparison of the breakdown between country temperature differential and  city differential are interesting, as the top three cities don’t appear in the top two countries at all. After that, Russia and Canada are represented in the next couple of rankings, with major cities coming in the top five for each of them. Further investigation of both data sets shows why this might be. Neither of the top two countries have a city listed in the cities list, and so their data doesn’t appear. Looking at a map shows the latitude of both countries to be almost entirely above 40 degrees North, which is strongly correlated with wide temperature variations. As with the city data referenced above, cold winters and occasionally oppressively hot summers account for much of the difference here. 

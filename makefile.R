@@ -9,6 +9,7 @@ library(lubridate)
 library(plyr)
 library(dplyr)
 library(ggplot2)
+library(knitr)
 library(readr)
 library(pander)
 library(data.table)
@@ -86,10 +87,12 @@ source("Top20Cities_Plot.R")
 # 2) code & brief explanations,
 # 3) code to answer the 3 questions,
 # 4) and the conclustion to the project.
-
+library(knitr)
+knit("Report.Rmd")
 # NOTE: You can't simply source an Rmd file, however you can knit it useing the knit() function.
 # Must install the package "knitr" if not already installed. Load the package with the library() fucntion.
 # Then call the knit() on the Rmd file.
 
-library(knitr)
-knit("")
+knit("Final_Report.Rmd")
+
+rmarkdown::render(input = "Final_Report.Rmd", output_file = "Final_Report.md")
