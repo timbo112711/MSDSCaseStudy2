@@ -23,7 +23,7 @@ Top20Contires <- ggplot(Top20, aes(x=reorder(Country,-Diff), y=Diff, fill = Diff
 Top20Contires1 <- ggplot(Top20, aes(x=reorder(Country,-Diff), y=Diff, fill = Diff))+ 
   geom_bar(colour="black", position=position_dodge(), stat = "identity")+ # bars with black outline that are touching eachother. stat argument is for the Country varible since it is a factor
   scale_fill_gradient(low = "#FF8888", high = "#FF0000")+ # red gradient 
-  geom_text(aes(label=Diff), vjust=2, color="white", position=position_dodge(1.2), size=3.5)+ # put value of Diff in top portion of the bar for each Country
+  geom_text(aes(label=Diff), vjust=2, hjust=2, color="white", position=position_dodge(1.2), size=3.5)+ # put value of Diff in top portion of the bar for each Country
   labs(x = "Country", y = "Difference", title = "Top 20 Countries with Maximum Differences for the Period Since 1900")+
   theme_minimal()+ # the type of theme of the graph layout
   theme(legend.position = "none")+
