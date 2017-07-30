@@ -1,4 +1,4 @@
-####                MSDSCaseStusy2              #####
+####                MSDSCaseStudy2              #####
 ####   MSDS 6306:  Introduction to Data Science #####
 ####        Case Study 2 (Group Project)        #####
 #####################################################
